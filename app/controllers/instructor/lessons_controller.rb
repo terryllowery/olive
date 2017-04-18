@@ -3,17 +3,10 @@ class Instructor::LessonsController < ApplicationController
   before_action :required_auth_for_current_section
 
   def new
-    # if current_section.course.user != current_user
-    #   return render plain: 'Unauthorized', status: :unauthorized
-    # end
     @lesson = Lesson.new
   end
 
   def create
-
-    # if current_section.course.user != current_user
-    #   return render plain: 'Unauthorized', status: :unauthorized
-    # end
     @lesson = current_section.lessons.create(lesson_params)
     redirect_to instructor_course_path(current_section.course)
   end
@@ -24,6 +17,8 @@ class Instructor::LessonsController < ApplicationController
     end
 
   end
+
+
   private
 
   helper_method :current_section
