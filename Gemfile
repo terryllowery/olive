@@ -14,8 +14,9 @@ gem 'simple_form'
 # User auth via devise
 gem 'devise'
 
-# Images via carrierwave
+# Images via carrierwave and mini_magick
 gem 'carrierwave', '~> 1.0'
+gem 'mini_magick'
 
 # Figaro
 gem 'figaro'
