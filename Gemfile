@@ -14,6 +14,15 @@ gem 'simple_form'
 # User auth via devise
 gem 'devise'
 
+# Images via carrierwave
+gem 'carrierwave', '~> 1.0'
+
+# Figaro
+gem 'figaro'
+
+# For AWS s3 communication
+gem 'fog'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.2'
 # Use postgresql as the database for Active Record
