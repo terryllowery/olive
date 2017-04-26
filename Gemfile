@@ -23,6 +23,7 @@ gem 'figaro'
 
 # For AWS s3 communication
 gem 'fog'
+gem 'carrierwave-aws'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.2'
