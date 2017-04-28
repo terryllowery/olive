@@ -8,7 +8,10 @@ class ImageUploader < CarrierWave::Uploader::Base
   # storage :file
   storage :aws
 
+  # TODO I don't like how the course photos are being cropped. Look into fixing this for the courses video upload
+
   process resize_to_fill: [800, 350]
+
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
