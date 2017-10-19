@@ -6,7 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 # Bootstrap
-gem 'bootstrap', '~> 4.0.0.alpha6'
+gem 'bootstrap', '4.0.0.alpha6'
 
 # Forms via simple_form
 gem 'simple_form'

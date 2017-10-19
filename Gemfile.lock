@@ -1,8 +1,8 @@
 GIT
   remote: https://github.com/stripe/stripe-ruby
-  revision: 20f4feaec00299c71b198f7d5e61a86a3f5c4626
+  revision: 987bbd09c07a66a4be839f0ecc6d6f14ab2db811
   specs:
-    stripe (3.5.3)
+    stripe (3.6.0)
       faraday (~> 0.10)
 
 GEM
@@ -49,7 +49,7 @@ GEM
     arel (7.1.4)
     autoprefixer-rails (7.1.5)
       execjs
-    aws-partitions (1.25.0)
+    aws-partitions (1.26.0)
     aws-sdk-core (3.6.0)
       aws-partitions (~> 1.0)
       aws-sigv4 (~> 1.0)
@@ -64,9 +64,8 @@ GEM
     aws-sigv4 (1.0.2)
     bcrypt (3.1.11)
     bindex (0.5.0)
-    bootstrap (4.0.0.beta)
+    bootstrap (4.0.0.alpha6)
       autoprefixer-rails (>= 6.0.3)
-      popper_js (~> 1.11.1)
       sass (>= 3.4.19)
     builder (3.2.3)
     byebug (9.1.0)
@@ -296,7 +295,6 @@ GEM
       mini_portile2 (~> 2.3.0)
     orm_adapter (0.5.0)
     pg (0.21.0)
-    popper_js (1.11.1)
     puma (3.10.0)
     rack (2.0.3)
     rack-test (0.6.3)
@@ -399,7 +397,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bootstrap (~> 4.0.0.alpha6)
+  bootstrap (= 4.0.0.alpha6)
   byebug
   carrierwave (~> 1.0)
   carrierwave-aws
