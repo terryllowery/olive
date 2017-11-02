@@ -1,7 +1,8 @@
 <script>
   $(function(){
-    $('.lessons').sortable({
+    $('.sort-item').sortable({
       update: function( event, ui ) {
+//      	alert(ui.item.data('update-url'));
         $.ajax({
           type: 'PUT',
           url: ui.item.data('update-url'),
@@ -24,12 +25,12 @@
   <h2 class="text-center">Sections</h2>
   <%= link_to 'Add new section', new_instructor_course_section_path(current_course), class: 'btn btn-primary btn-large'%>
 
-  <ul>
-    <% current_course.sections.each do |section| %>
-    <li>
+  <ul class="sort-item">
+    <% current_course.sections.rank(:row_order).each do |section| %>
+    <li data-update-url="<%= instructor_section_path section %>">
         <%= section.title %>
         <%= link_to 'New Lesson', new_instructor_section_lesson_path(section), class: 'float-right btn btn-primary btn-sm' %>
-        <ul class="lessons">
+        <ul class="sort-item">
           <% section.lessons.rank(:row_order).each do |lesson| %>
             <li data-update-url="<%= instructor_lesson_path lesson %>">
               <b><%= lesson.title %></b>
