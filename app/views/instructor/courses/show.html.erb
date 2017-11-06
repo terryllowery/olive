@@ -1,17 +1,29 @@
 <script>
-  $(function(){
-    $('.sort-item').sortable({
-      update: function( event, ui ) {
-//      	alert(ui.item.data('update-url'));
-        $.ajax({
-          type: 'PUT',
-          url: ui.item.data('update-url'),
-          dataType: 'json',
-          data: { lesson: {row_order_position: ui.item.index()}}
-        });
-      }
+$(function () {
+    $('.lessons').sortable({
+        update: function (event, ui) {
+        	$.ajax({
+              type: 'PUT',
+              url: ui.item.data('lesson-url'),
+              dataType: 'json',
+              data: {lesson: { row_order_position: ui.item.index()}}
+          });
+		}
     });
-  });
+});
+
+$(function () {
+    $('.sections').sortable({
+        update: function (event, ui) {
+            $.ajax({
+                type: 'PUT',
+                url: ui.item.data('section-url'),
+                dataType: 'json',
+                data: {section: {row_order_position: ui.item.index()}}
+            });
+		}
+    });
+});
 </script>
 <br />
 <div class="booyah-box">
@@ -25,14 +37,14 @@
   <h2 class="text-center">Sections</h2>
   <%= link_to 'Add new section', new_instructor_course_section_path(current_course), class: 'btn btn-primary btn-large'%>
 
-  <ul class="sort-item">
+  <ul class="sections">
     <% current_course.sections.rank(:row_order).each do |section| %>
-    <li data-update-url="<%= instructor_section_path section %>">
+    <li data-section-url="<%= instructor_section_path section %>">
         <%= section.title %>
         <%= link_to 'New Lesson', new_instructor_section_lesson_path(section), class: 'float-right btn btn-primary btn-sm' %>
-        <ul class="sort-item">
+        <ul class="lessons">
           <% section.lessons.rank(:row_order).each do |lesson| %>
-            <li data-update-url="<%= instructor_lesson_path lesson %>">
+            <li data-lesson-url="<%= instructor_lesson_path lesson %>">
               <b><%= lesson.title %></b>
               -
               <%= lesson.subtitle %>
