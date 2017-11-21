@@ -1,11 +1,7 @@
 class Instructor::SectionsController < ApplicationController
   before_action :authenticate_user!
-  before_action :require_auth_for_current_course
   before_action :require_auth_for_sections_update, only: [:update]
 
-  def new
-    @section = Section.new
-  end
 
   def create
     @section = current_course.sections.create(section_params)
@@ -31,12 +27,24 @@ class Instructor::SectionsController < ApplicationController
   end
 
   def current_section
-    @section ||= Section.find(params[:id])
+    if @section != nil
+      @section ||= Section.find(params[:id])
+    end
+
   end
 
   helper_method :current_course
   def current_course
+    binding.pry
+    if current_section != nil
     @current_course ||= current_section.course
+    elsif params[:course_id] != nil
+      @current_course ||= @course = Course.find(params[:course_id])
+    elsif params[:id] != nil
+      @current_course = Course.find(Section.find(params[:id]).course_id)
+    end
+
+
   end
 
   def section_params
