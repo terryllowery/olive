@@ -16,7 +16,6 @@ class Instructor::CoursesController < ApplicationController
 
   def show
     @section = Section.new
-    binding.pry
   end
 
   private

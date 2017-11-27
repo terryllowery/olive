@@ -27,23 +27,20 @@ class Instructor::SectionsController < ApplicationController
   end
 
   def current_section
-    if @section != nil
-      @section ||= Section.find(params[:id])
-    end
+    #pry.binding
+
+    @section ||= Section.find(params[:id])
+
 
   end
 
   helper_method :current_course
   def current_course
-    binding.pry
-    if current_section != nil
-    @current_course ||= current_section.course
-    elsif params[:course_id] != nil
-      @current_course ||= @course = Course.find(params[:course_id])
-    elsif params[:id] != nil
-      @current_course = Course.find(Section.find(params[:id]).course_id)
+    if params[:course_id]
+      @current_course ||= Course.find(params[:course_id])
+    else
+      current_section.course
     end
-
 
   end
 
