@@ -2,6 +2,7 @@ class Instructor::LessonsController < ApplicationController
   before_action :authenticate_user!
   before_action :required_auth_for_current_section, only: [:new, :create]
   before_action :required_auth_for_current_lesson, only: [:update]
+  skip_before_filter :verify_authenticity_token
 
   def new
     @lesson = Lesson.new
