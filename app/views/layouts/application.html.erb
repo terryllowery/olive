@@ -52,9 +52,50 @@
 
   <div id="footer">
     <div class="container">
-      <b>Instructors</b>
-      <br />
-      <%= link_to 'Teach a Course', new_instructor_course_path %>
+      <div class="row">
+        <div class="col-12 col-sm-3">
+          <b>Instructors</b>
+          <br />
+          <%= link_to 'Teach a Course', new_instructor_course_path %>
+          <br />
+          <%= link_to "My Dashboard", dashboard_path %>
+        </div>
+        <div class="col-12 col-sm-3">
+          <b>About</b>
+          <br />
+          <%= link_to 'Team', url: '#' %>
+          <br />
+          <%= link_to 'Careers', url: '#' %>
+          <br />
+          <%= link_to 'Privacy Policy', url: '#' %>
+        </div>
+        <div class="col-12 col-sm-3">
+          <b>Contact</b>
+          <br />
+          <%= mail_to "terry@lowerytech.net", "Contact us", subject: "Info for Olive video training" %>
+          <br />
+          1 Technology Way
+          <br />
+          San Antonio, TX. 78218
+        </div>
+        <div class="col-12 col-sm-3 social">
+          <b>Social</b>
+          <br />
+          <%= link_to 'https://twitter.com/terryllowery', target: '_blank' do %>
+            <span class="fa fa-twitter-square fa-2x social-button"></span>
+          <% end %>
+          <%= link_to 'https://github.com/terryllowery', target: '_blank' do %>
+            <span class="fa fa-github-square fa-2x social-button"></span>
+          <% end %>
+          <%= link_to 'https://www.facebook.com/terry.lowery.750', target: '_blank' do %>
+            <span class="fa fa-facebook-square fa-2x social-button"></span>
+          <% end %>
+          <br />
+        </div>
+      </div>
+
+
+
     </div>
   </div>
 
